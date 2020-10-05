@@ -14,7 +14,7 @@ MATLABCMD="/usr/local/bin/matlab -nodisplay -nodesktop -nosplash -r "
 PIPELINE_DIR=/net/birdstore/Active_Atlas_Data/data_root/pipeline_data/
 OUTPUT_DIR=$PIPELINE_DIR/$ANIMAL/preps/transformation/
 ATLAS_DIR=$PIPELINE_DIR/$ANIMAL/preps/atlas
-CODE_DIR=$HOME/Registration/3.FinalTransformation
+CODE_DIR=$HOME/programming/Registration/3.FinalTransformation
 
 #################################start process: target to registered space##############################
 
