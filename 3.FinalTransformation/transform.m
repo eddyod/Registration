@@ -3,7 +3,7 @@ function transform(img_path, recon_path, output_dir)
 
     parpool('local',4);
     pctRunOnAll maxNumCompThreads(1);
-    imglist = dir(strcat(img_path, '*.jp2'));
+    imglist = dir(strcat(img_path, '/', '*.jp2'));
     % vtklist = dir(strcat(recon_path, 'input_to_registered_displacement*.vtk'));
     vtklist = dir(strcat(recon_path, 'registered_to_input_displacement*.vtk'));
 
