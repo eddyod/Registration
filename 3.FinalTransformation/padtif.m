@@ -1,7 +1,7 @@
 function padtif(img_path, output_dir, output_jp2)
     % LASTN = maxNumCompThreads(1)
 
-    parpool('local',8);
+    parpool('local',4);
     pctRunOnAll maxNumCompThreads(1)
     imglist = dir(strcat(img_path,'/*.tif'));
     parfor i = 1:length(imglist)
