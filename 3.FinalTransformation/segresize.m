@@ -1,7 +1,7 @@
 function segresize(seg_path, img_path, output_dir)
     % LASTN = maxNumCompThreads(1)
 
-    p = parpool('local',10);
+    p = parpool('local',8);
     pctRunOnAll maxNumCompThreads(1)
     seglist = dir(strcat(seg_path, '*.mat'));
     imglist = dir(strcat(img_path, '*.tif'));

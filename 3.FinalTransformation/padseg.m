@@ -1,7 +1,7 @@
 function padseg(seg_path, output_dir)
     % LASTN = maxNumCompThreads(1)
 
-    p = parpool('local',10);
+    p = parpool('local',8);
     pctRunOnAll maxNumCompThreads(1)
     seglist = dir(strcat(seg_path, '*.mat'));
     parfor i = 1:length(seglist)
