@@ -1,33 +1,33 @@
 #!/bin/bash
 
-if (($# < 1))
+if (($# < 2))
 then
-    echo "No input brainname argument... exiting"
+    echo "run program as: ./FinalTransformation.sh DK39 CH2"
     exit 1
 fi
 #define input
 ANIMAL=$1
+CHANNEL=$2
 
 MATLABCMD="/usr/local/bin/matlab -nodisplay -nodesktop -nosplash -r "
 
 #define path
-PIPELINE_DIR=/net/birdstore/Active_Atlas_Data/data_root/pipeline_data
-OUTPUT_DIR=$PIPELINE_DIR/$ANIMAL/preps/transformation/
-ATLAS_DIR=$PIPELINE_DIR/$ANIMAL/preps/atlas
-CODE_DIR=$HOME/programming/Registration/3.FinalTransformation
+PIPELINE_DIR="/net/birdstore/Active_Atlas_Data/data_root/pipeline_data"
+OUTPUT_DIR="$PIPELINE_DIR/$ANIMAL/preps/transformation"
+CODE_DIR="$HOME/programming/Registration"
+ATLAS_DIR="$CODE_DIR/atlas_50_vtk"
 
 #################################start process: target to registered space##############################
 
-#1 transform high resolution images
-INPUT_PATH="/data2/DKLabs Dropbox/UCSD_to_from_CSHL/$ANIMAL/"
-IMG_PATH=$PIPELINE_DIR/$ANIMAL/jp2
-# IMG_PATH=/nfs/mitraweb2/mnt/disk127/main/mba_converted_imaging_data/MD721\&720/MD720/
-RECON_PATH=$INPUT_PATH/Registration_OUTPUT/
+# transform high resolution images
+INPUT_PATH="/data2/DKLabs Dropbox/UCSD_to_from_CSHL/$ANIMAL"
+IMG_PATH="$PIPELINE_DIR/$ANIMAL/jp2/$CHANNEL"
+RECON_PATH="$INPUT_PATH/Registration_OUTPUT"
 ##### is this used? CSV_PATH=$PIPELINE_DIR/Data/$ANIMAL/INPUT_DATA/
 ## make dirs
 mkdir -p $OUTPUT_DIR
 mkdir -p $ATLAS_DIR
-mkdir -p $OUTPUT_DIR/reg_high_tif/
+mkdir -p $OUTPUT_DIR/reg_high_tif
 $MATLABCMD "cd('$CODE_DIR'); maxNumCompThreads(2); transform('$IMG_PATH', '$RECON_PATH', '$OUTPUT_DIR/reg_high_tif/'); exit"
 exit
 
