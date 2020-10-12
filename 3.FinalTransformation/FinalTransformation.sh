@@ -28,7 +28,8 @@ RECON_PATH="$INPUT_PATH/Registration_OUTPUT"
 mkdir -p $OUTPUT_DIR
 mkdir -p $ATLAS_DIR
 mkdir -p $OUTPUT_DIR/reg_high_tif
-$MATLABCMD "cd('$CODE_DIR'); maxNumCompThreads(2); transform('$IMG_PATH', '$RECON_PATH', '$OUTPUT_DIR/reg_high_tif/'); exit"
+$MATLABCMD "cd('$CODE_DIR/3.FinalTransformation'); maxNumCompThreads(2); transform('$IMG_PATH', '$RECON_PATH', '$OUTPUT_DIR/reg_high_tif/'); exit"
+echo "Finished first part"
 exit
 
 #padding the tif
